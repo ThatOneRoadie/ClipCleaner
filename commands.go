@@ -10,11 +10,9 @@ import (
 )
 
 const textHelp = `Commands:
-  @AutoDelete set [duration: 30m] [count: 10] - starts this channel for message auto-deletion
+  @ClipCleaner set [duration: 30m] [count: 10] - starts this channel for message auto-deletion
       Duration or message count can be specified as ` + "`-`" + ` to not use that, but at least one must be specified. Use "set 0 0" to disable the bot.
-  @AutoDelete help - prints this help message
-  @AutoDelete adminhelp [anything...] - forwards your request to the help server
-For more help, join the help server: <https://discord.gg/FUGn8yE>`
+  @ClipCleaner help - prints this help message`
 
 const adminUserID = `82592645502734336`
 
@@ -37,23 +35,23 @@ func CommandHelp(b *Bot, m *discordgo.Message, rest []string) {
 	b.s.ChannelMessageSend(m.ChannelID, textHelp)
 }
 
-func CommandAdminHelp(b *Bot, m *discordgo.Message, rest []string) {
-	plainContent, err := m.ContentWithMoreMentionsReplaced(b.s)
-	if err != nil {
-		plainContent = m.Content
-	}
-	ch, guild := b.GetMsgChGuild(m)
-	if guild == nil {
-		return
-	}
-	b.ReportToLogChannel(fmt.Sprintf(
-		"Adminhelp command from %s (%s#%s) in #%s (ch id %s) of '%s' (guild id %s):\n%s",
-		m.Author.Mention(), m.Author.Username, m.Author.Discriminator,
-		ch.Name, m.ChannelID,
-		guild.Name, guild.ID,
-		plainContent,
-	))
-}
+#func CommandAdminHelp(b *Bot, m *discordgo.Message, rest []string) {
+#	plainContent, err := m.ContentWithMoreMentionsReplaced(b.s)
+#	if err != nil {
+#		plainContent = m.Content
+#	}
+#	ch, guild := b.GetMsgChGuild(m)
+#	if guild == nil {
+#		return
+#	}
+#	b.ReportToLogChannel(fmt.Sprintf(
+#		"Adminhelp command from %s (%s#%s) in #%s (ch id %s) of '%s' (guild id %s):\n%s",
+#		m.Author.Mention(), m.Author.Username, m.Author.Discriminator,
+#		ch.Name, m.ChannelID,
+#		guild.Name, guild.ID,
+#		plainContent,
+#	))
+#}
 
 func CommandAdminSay(b *Bot, m *discordgo.Message, rest []string) {
 	channelID := rest[0]
@@ -90,7 +88,7 @@ func CommandModify(b *Bot, m *discordgo.Message, rest []string) {
 		return
 	}
 	if apermissions&perm == 0 {
-		b.s.ChannelMessageSend(m.ChannelID, "You must have the Manage Messages permission to change AutoDelete settings.")
+		b.s.ChannelMessageSend(m.ChannelID, "You must have the Manage Messages permission to change ClipCleaner settings.")
 		return
 	}
 
