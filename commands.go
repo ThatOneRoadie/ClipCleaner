@@ -204,10 +204,10 @@ var commands = map[string]func(b *Bot, m *discordgo.Message, rest []string){
 	"setup": CommandModify,
 	"leave": CommandLeave,
 
-	"ahelp":     CommandAdminHelp,
+/*	"ahelp":     CommandAdminHelp,
 	"adminhelp": CommandAdminHelp,
 	"amsg":      CommandAdminHelp,
 	"adminmsg":  CommandAdminHelp,
-	"support":   CommandAdminHelp,
+	"support":   CommandAdminHelp,*/
 	"adminsay":  CommandAdminSay,
 }
