@@ -35,24 +35,24 @@ func CommandHelp(b *Bot, m *discordgo.Message, rest []string) {
 	b.s.ChannelMessageSend(m.ChannelID, textHelp)
 }
 
-#func CommandAdminHelp(b *Bot, m *discordgo.Message, rest []string) {
-#	plainContent, err := m.ContentWithMoreMentionsReplaced(b.s)
-#	if err != nil {
-#		plainContent = m.Content
-#	}
-#	ch, guild := b.GetMsgChGuild(m)
-#	if guild == nil {
-#		return
-#	}
-#	b.ReportToLogChannel(fmt.Sprintf(
-#		"Adminhelp command from %s (%s#%s) in #%s (ch id %s) of '%s' (guild id %s):\n%s",
-#		m.Author.Mention(), m.Author.Username, m.Author.Discriminator,
-#		ch.Name, m.ChannelID,
-#		guild.Name, guild.ID,
-#		plainContent,
-#	))
-#}
-
+/*func CommandAdminHelp(b *Bot, m *discordgo.Message, rest []string) {
+	plainContent, err := m.ContentWithMoreMentionsReplaced(b.s)
+	if err != nil {
+		plainContent = m.Content
+	}
+	ch, guild := b.GetMsgChGuild(m)
+	if guild == nil {
+		return
+	}
+	b.ReportToLogChannel(fmt.Sprintf(
+		"Adminhelp command from %s (%s#%s) in #%s (ch id %s) of '%s' (guild id %s):\n%s",
+		m.Author.Mention(), m.Author.Username, m.Author.Discriminator,
+		ch.Name, m.ChannelID,
+		guild.Name, guild.ID,
+		plainContent,
+	))
+}
+*/
 func CommandAdminSay(b *Bot, m *discordgo.Message, rest []string) {
 	channelID := rest[0]
 
