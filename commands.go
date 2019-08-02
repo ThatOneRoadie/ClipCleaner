@@ -14,7 +14,7 @@ const textHelp = `Commands:
       Duration or message count can be specified as ` + "`-`" + ` to not use that, but at least one must be specified. Use "set 0 0" to disable the bot.
   @ClipCleaner help - prints this help message`
 
-const adminUserID = `82592645502734336`
+const adminUserID = `88035844165758976`
 
 const emojiBusy = `🔄`
 const emojiDone = `✅`
