@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/riking/AutoDelete"
+	"github.com/ThatOneRoadie/ClipCleaner"
 	"gopkg.in/yaml.v2"
 )
 
