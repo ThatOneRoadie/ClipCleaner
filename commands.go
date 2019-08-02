@@ -117,14 +117,14 @@ func CommandModify(b *Bot, m *discordgo.Message, rest []string) {
 	var confMessage *discordgo.Message
 
 	if duration != 0 && count != 0 {
-		confMessage, err = b.s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Messages in this channel will be deleted after %s or %d messages, whichever comes first.", duration, count))
+		confMessage, err = b.s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Messages not containing Twitch Clip URLs in this channel will be deleted after %s or %d messages, whichever comes first.", duration, count))
 	} else if duration != 0 {
-		confMessage, err = b.s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Messages in this channel will be deleted after %s.", duration))
+		confMessage, err = b.s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Messages not containing Twitch Clip URLs in this channel will be deleted after %s.", duration))
 
 	} else if count != 0 {
-		confMessage, err = b.s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Messages in this channel will be deleted after %d other messages.", count))
+		confMessage, err = b.s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Messages not containing Twitch Clip URLs in this channel will be deleted after %d other messages.", count))
 	} else {
-		confMessage, err = b.s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Messages in this channel will not be auto-deleted."))
+		confMessage, err = b.s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Messages not containing Twitch Clip URLs in this channel will not be auto-deleted."))
 	}
 
 	if err != nil {
