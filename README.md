@@ -1,7 +1,5 @@
 # ClipCleaner
 
-### _cleaning up over 175 channels since 2017_
-
 ClipCleaner is forked from riking's fantastic AutoDelete bot, with some modifications to the code to *ignore* messages containing Twitch Clip Links.
 
 AutoDelete is a Discord bot that will automatically delete messages from a designated channel.
